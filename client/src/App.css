@@ -1,0 +1,279 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  display: flex; /*added*/
+  flex-direction: column; /*added*/
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.conv-container{
+  display: grid;
+  grid-template-columns: 1fr 4fr 12fr;
+}
+
+.nav-bar{
+  grid-column: 1;
+  background-color: #2b2d3a;
+}
+
+.conversations-list{
+  grid-column: 2;
+  display: grid;
+  grid-template-rows: 1fr 8fr;
+  background-color: #f4f6f9
+}
+/* #f4f6f9 */
+
+.conversation{
+  grid-column: 3;
+}
+
+.search-div{
+  grid-row: 1;
+  background-color: #e7eef7;
+}
+
+.list-div{
+  grid-row: 2;
+}
+
+#search-component{
+  padding: 4%;
+  /* display: grid;
+  grid-template-columns: 18fr 3fr; */
+}
+.addIcon{
+  grid-column: 2;
+}
+
+.conversation{
+  background-color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.conversation > .recepient {
+  font-size: xxx-large;
+}
+
+.conversation > .content{
+  /* min-height: 62%;  */
+  min-height: 700px;
+  overflow: scroll;
+  max-height: 700px;
+  /* display: grid;
+  grid-template-columns: 2; */
+}
+.conversation > .content > .messages{
+  /* grid-column: 1; */
+  /* display: inline-block;
+    max-height: 700px */
+}
+
+.conversation > .content > .empty{
+  /* grid-column: 2; */
+}
+
+.message {
+  display: grid;
+  /* grid-template-columns: 3fr 1fr; */
+  margin-top: 0.5%;
+  grid-template-rows: 3fr 1fr;
+  width:100%;
+}
+
+.user-message{
+  /* grid-template-columns: 1fr 2fr; */
+  float: right;
+}
+
+.recepient-message{
+  /* grid-template-columns: 2fr 1fr; */
+  float: left;
+}
+
+.empty{
+  float: left;
+}
+
+.text {
+  /* padding-left: 30%;
+  padding-right: 30%;
+  float: left; */
+  grid-row: 1;
+  font-size: small;
+}
+
+.date{
+  /* float: left; */
+  grid-row: 2;
+}
+
+.user-message > .text {
+  /* grid-column: 2; */
+}
+
+.user-message > .text > p{
+  background-color: #ea4b4b;
+  color: #f4f6f9;
+  float: right;
+
+}
+
+.text > p{
+  font-weight: bold;
+  border-radius: 10%;
+  width: fit-content;
+  max-width: 80%;
+  padding: 2%;
+}
+
+.user-message > .date{
+  /* grid-column: 1; */
+}
+
+.recepient-message > .text{
+  /* grid-column: 1; */
+  float: left;
+}
+
+.recepient-message > .text > p{
+  background-color: #f4f6f9;
+  color: #9ba3ad;
+  float: left;
+}
+
+.recepient-message > .date{
+  /* grid-column: 2; */
+  text-align: left;
+}
+
+.message > .date {
+  font-size: x-small;
+}
+
+.autocomplete{
+  /* grid-column: 1; */
+  padding: 2%;
+}
+.addIcon > .MuiSvgIcon-root {
+  font-size: 4rem;
+}
+
+.conv-bar{
+  border-bottom: 1px solid #2b2d3a;
+  width: 100%;
+}
+
+.list-div > ul {
+  /* padding: 10%; */
+  background-color: #f4f6f9;
+  max-width: 100%;
+}
+
+.recepient{
+  display: block;
+  font-size: 1.5em;
+  color: #2b2d3a;
+  text-align: left;
+  margin-top: 5%;
+}
+
+.message-subcontent{
+  font-size: 1.2em;
+  color: #9ba3ad;
+  /* margin-top: 1%; */
+  margin-bottom: 5%;
+  text-align: left;
+}
+
+.date{
+  display: block;
+  color: #a6a8a9;
+  text-align: right;
+}
+
+.date > p {
+  margin-top: 5%;
+}
+
+.conv-title{
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
+}
+
+.conv-title > .recepient-bar {
+  /* display: contents;
+  grid-column: 1; */
+  text-align: left;
+  vertical-align: middle;
+  font-size: 1.5em;
+  color: #2b2d3a;
+}
+.conv-title > .date-bar {
+  /* display: contents;
+  grid-column: 2; */
+  text-align: right;
+  vertical-align: middle;
+  color: #a6a8a9;
+}
+
+.insert-message{
+  padding-top: 1.5%;
+}
+
+.insert{
+  width: 90%;
+  float: left;
+}
+
+.sendIcon{
+  padding: 1%;
+  border-radius: 50%;
+  margin-left: 2%;
+  float: right;
+}
+
+.nav-icon {
+  margin-top: 20%;
+}
+.nav-icon > .MuiSvgIcon-root {
+  border-radius: 10%;
+}
+.nav-icon > .MuiSvgIcon-root:hover {
+  background-color: #ea4b4b;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
