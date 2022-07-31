@@ -15,7 +15,7 @@ import axios from 'axios'
 import User from '../classes/User'
 
 const theme = createTheme();
-const Base_Url = '' //'http://localhost:8000'
+const Base_Url = ''
 
 export default function Login(props) {
 

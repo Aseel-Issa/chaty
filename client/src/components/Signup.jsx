@@ -17,7 +17,7 @@ import User from '../classes/User'
 import { useNavigate } from 'react-router-dom'
 
 const theme = createTheme();
-const Base_Url = '' //'http://localhost:8000'
+const Base_Url = ''
 
 export default function Signup(props){
 
@@ -29,10 +29,6 @@ export default function Signup(props){
     const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        // console.log({
-        //   email: data.get('email'),
-        //   password: data.get('password'),
-        // });
         let email= data.get('email')
         let password= data.get('password')
         let confirmedPassword= data.get('confirmedPassword')
@@ -60,7 +56,6 @@ export default function Signup(props){
         try{
           // create new user request
             let result = await axios.post(Base_Url+'/api/user/new', user)
-            // console.log(result)
             let loggedInUser = new User(result.data._id, result.data.firstName, result.data.lastName, result.data.email) 
             // impedent login - client side
             props.login(loggedInUser)

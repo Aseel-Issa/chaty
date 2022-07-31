@@ -6,13 +6,12 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import axios from 'axios';
 import Conversation from '../classes/Conversation';
-// import User from '../classes/User';
 import Member from '../classes/Member';
 
 const Base_Url = ''
 export default function SearchInput(props) {
 
-    const color = '#ea4b4b'
+    // const color = '#ea4b4b'
     const [users, setUsers] = useState([])
     const [searchString, setSearchString] = useState('')
     const [selectedUser, setSelectedUser] = useState({})
@@ -47,9 +46,8 @@ export default function SearchInput(props) {
                 return c
             }
         })
-        // console.log('list: ', list)
         if(list.every((l) => { return l == undefined})){
-            // console.log('new conversation should be created')
+            //new conversation should be created
                 let sender = new Member(props.loggedInUser._id, props.loggedInUser.firstName, props.loggedInUser.lastName)
                 let newConv = new Conversation('', [sender, new Member(selectedUser._id, selectedUser.firstName, selectedUser.lastName)], [])
                 props.addConv(newConv)

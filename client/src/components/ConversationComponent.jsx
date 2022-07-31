@@ -47,14 +47,12 @@ export default function ConversationComponent(props) {
             const members = props.conv.members
             let bodyConv = {members: [{member: members[0]._id}, {member: members[1]._id}], messages: [message]}
             let newConv = await axios.post('/api/conversation/new', bodyConv)
-            // console.log(newConv.data)
             // update client side
             props.updateUnsavedConv(newConv.data)
         }
         // if the user is sending a message to an existing conversation
         else{
             const newConv = await axios.put('/api/conversation/' + props.conv._id, message)
-            // console.log(newConv.data)
              // update client
             props.addMessage(props.conv._id, message)
         }

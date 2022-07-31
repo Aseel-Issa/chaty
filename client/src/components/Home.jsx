@@ -35,40 +35,31 @@ export default function Home(props) {
 
     useEffect(() => {
         if(socket == null) {
-            // console.log('socket is null')
             return
         }
         // newMessage shall contain the conversation id, and the content of the message
         socket.on('recieve-new-message', data => {
-            // console.log('in recieved new message event')
-            // console.log(data)
         // add the recieved message to the end of the messages list of related conversation
           let index = convs.findIndex(c => {return c._id == data.conv_id})
           if(index != -1){
             let newConv = {...convs[index]}
-            // console.log('new conversation', newConv)
             newConv.messages.push(new Message(data.newMessage.message, data.newMessage.sender, data.newMessage.createdAt))
             let newList = [...convs]
             // move the conversation to the top
             newList.splice(index,1)
             newList.unshift(newConv)
-            // newList[index] = newConv
             setConvs(newList)
           }else{
               console.log('conv was not found...')
-            //   console.log(convs)
           }
         });
 
          // recieves a conversation document
          socket.on('recieve-new-conversation', data => {
-            // console.log('in recieved new conversation event')
-            // console.log(data)
           try{
             let members = data.members.map((m) => { return new Member(m.member._id, m.member.firstName, m.member.lastName) })
             let messages = data.messages.map((m) => { return new Message(m.message, m.sender, m.createdAt) })
             let newConv = new Conversation(data._id, members, messages)
-            // console.log('new conversation', newConv)
             let newList = [...convs]
             // add the conversation to the top
             newList.unshift(newConv)
@@ -123,7 +114,6 @@ export default function Home(props) {
         let members = newConv.members.map((m) => { return new Member(m.member._id, m.member.firstName, m.member.lastName) })
         let messages = newConv.messages.map((m) => { return new Message(m.message, m.sender, m.createdAt) })
         newList[index] = new Conversation(newConv._id, members, messages)
-        // console.log('new conv ', newList[index])
         setConvs(newList)
         // update conv to show
         setConvToShow(newList[index])

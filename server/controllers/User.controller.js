@@ -30,7 +30,6 @@ const User = require('../models/User.model')
   const findByEmail = async function (req, res) {
     try {
       const response = await User.findOne({email: req.params.email})
-      console.log(response)
       res.send(response)
     } catch (e) {
         res.status(400).send(new Error('Could not search on user by his email'))
