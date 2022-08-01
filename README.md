@@ -21,6 +21,7 @@ Chaty - is a basic chat application that is similar to whats app web, where user
   - 2. allow for group chat.
   - 3. showing the unread messages in bold.
   - 4. handle the deletion of a conversation from one member, while others can still access the conversation.
+  - 5. Show error messages as red sentences instead of using alerts
   
 ## Demo of the application:
 https://drive.google.com/file/d/1paunGifuzfb1KWkI0R1EwURvCfZnKBtJ/view?usp=sharing
